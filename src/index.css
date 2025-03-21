@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -13,7 +16,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 162 72% 42%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -35,19 +38,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -96,6 +92,93 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-gray-50 text-foreground font-sans;
   }
+}
+
+@layer components {
+  .forcepro-card {
+    @apply bg-white rounded-xl border border-forcepro-gray p-5 shadow-sm;
+  }
+  
+  .forcepro-stat-card {
+    @apply rounded-lg flex flex-col items-center justify-center p-4 text-white transition-all duration-300 hover:translate-y-[-2px] hover:shadow-md;
+  }
+  
+  .forcepro-nav-item {
+    @apply flex items-center gap-2 px-4 py-2 text-gray-700 rounded-md transition-all duration-200 hover:bg-gray-100;
+  }
+  
+  .forcepro-nav-item.active {
+    @apply bg-forcepro-green/10 text-forcepro-green;
+  }
+  
+  .forcepro-button {
+    @apply px-4 py-2 rounded-md transition-all duration-200 font-medium;
+  }
+  
+  .forcepro-button-primary {
+    @apply bg-forcepro-green text-white hover:bg-forcepro-green/90;
+  }
+  
+  .forcepro-input {
+    @apply rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-forcepro-green/30 focus:border-forcepro-green transition-all duration-200;
+  }
+}
+
+/* Custom styles for charts */
+.chart-container {
+  @apply h-full w-full overflow-hidden;
+}
+
+/* Calendar styles */
+.calendar-day {
+  @apply border border-gray-100 p-2 min-h-[80px] hover:bg-gray-50 transition-colors relative;
+}
+
+.calendar-day-number {
+  @apply text-gray-700 font-medium mb-2;
+}
+
+.calendar-day-item {
+  @apply text-xs rounded-md p-1 mb-1 text-white;
+}
+
+.calendar-day-item.green {
+  @apply bg-forcepro-green;
+}
+
+.calendar-day-item.orange {
+  @apply bg-forcepro-orange;
+}
+
+.calendar-day-item.blue {
+  @apply bg-forcepro-blue;
+}
+
+.calendar-header {
+  @apply bg-gray-100 p-2 text-sm font-medium text-gray-700;
+}
+
+.calendar-wrapper {
+  @apply border border-gray-200 rounded-xl overflow-hidden;
+}
+
+/* Progress bar */
+.progress-bar {
+  @apply h-5 rounded-full bg-gray-200 overflow-hidden;
+}
+
+.progress-bar-inner {
+  @apply h-full transition-all duration-500 ease-out;
+}
+
+/* Custom animations */
+.hover-scale {
+  @apply transition-transform duration-300 hover:scale-[1.02];
+}
+
+/* Card transition */
+.card-transition {
+  @apply transition-all duration-300 ease-in-out;
 }
